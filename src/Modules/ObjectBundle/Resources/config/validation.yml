@@ -1,0 +1,15 @@
+Modules\ObjectBundle\Entity\Objects:
+    constraints:
+        - Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity:
+            fields: [etag]
+            errorPath: title
+            message: 'This name is already in use'
+    properties:
+        title:
+            - Length:
+                min: 4
+                max: 50
+                minMessage: 'Your first name must be at least {{ limit }} characters long'
+                maxMessage: 'Your first name cannot be longer than {{ limit }} characters'
+        etag:
+            - Validator\Constraints\NotNull: ~

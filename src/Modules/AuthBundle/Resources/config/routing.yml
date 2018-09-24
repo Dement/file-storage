@@ -1,0 +1,9 @@
+auth_login:
+    path:     /login
+    defaults: { _controller: AuthBundle:Api:login, _format: json }
+    methods: [POST]
+
+auth_current:
+    path: /profile/current
+    defaults: { _controller: AuthBundle:Api:current, _format: json }
+    methods: [GET]

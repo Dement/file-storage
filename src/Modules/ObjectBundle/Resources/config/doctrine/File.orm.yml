@@ -1,0 +1,34 @@
+Modules\ObjectBundle\Entity\File:
+    type: entity
+    table: null
+    repositoryClass: Modules\ObjectBundle\Repository\FileRepository
+    id:
+        id:
+            type: integer
+            id: true
+            generator:
+                strategy: AUTO
+
+    fields:
+        path:
+            type: text
+            nullable: false
+        fileName:
+            type: text
+            nullable: false
+        ext:
+            type: text
+            nullable: false
+        size:
+            type: integer
+            nullable: false
+
+    oneToOne:
+        Objects:
+            targetEntity: Objects
+            joinColumn:
+                name: objects_id
+                referencedColumnName: id
+                onDelete: CASCADE
+
+    lifecycleCallbacks: {  }

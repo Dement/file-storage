@@ -1,0 +1,56 @@
+Modules\ObjectBundle\Entity\Objects:
+    type: entity
+    table: null
+    repositoryClass: Modules\ObjectBundle\Repository\ObjectsRepository
+    id:
+        id:
+            type: integer
+            id: true
+            generator:
+                strategy: AUTO
+
+    fields:
+        title:
+            type: text
+            length: 256
+            nullable: true
+        key:
+            type: text
+            length: 1024
+            nullable: true
+        etag:
+            type: text
+            length: 256
+            nullable: false
+        size:
+            type: integer
+            nullable: true
+        delete:
+            type: boolean
+            default: 0
+            nullable: false
+        created:
+            type: datetime
+            nullable: false
+            gedmo:
+                timestampable:
+                    on: create
+
+    manyToOne:
+        bucket:
+            targetEntity: Modules\BucketBundle\Entity\Bucket
+            mappedBy: id
+            nullable: false
+
+    oneToOne:
+        file:
+            targetEntity: File
+            cascade: ["persist", "remove"]
+            orphanRemoval: true
+            fetch: EAGER
+            joinColumn:
+                name: file_id
+                referencedColumnName: id
+#                onDelete: CASCADE
+
+    lifecycleCallbacks: {  }

@@ -1,0 +1,19 @@
+bucket_add:
+    Modules\BucketBundle\Entity\Bucket:
+        type: only
+        fields: [id, title]
+
+bucket_edit:
+    Modules\BucketBundle\Entity\Bucket:
+        type: only
+        fields: [id, title]
+
+bucket_get:
+    Modules\BucketBundle\Entity\Bucket:
+        type: only
+        fields: [id, title]
+
+bucket_list:
+    Modules\BucketBundle\Entity\Bucket:
+        type: only
+        fields: [id, title]

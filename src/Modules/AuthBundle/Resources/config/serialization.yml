@@ -1,0 +1,4 @@
+auth_current:
+    Modules\AuthBundle\Entity\UserProfile:
+        type: only
+        fields: [id, lastName, name]

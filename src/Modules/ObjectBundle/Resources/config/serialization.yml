@@ -1,0 +1,41 @@
+folder_add:
+    Modules\ObjectBundle\Entity\Objects:
+        type: only
+        fields: [id, title, key, created, size]
+        virtual:
+            isFile: isFile
+
+folder_add_folder:
+    Modules\ObjectBundle\Entity\Objects:
+        type: only
+        fields: [id, title, key, created, size]
+        virtual:
+            isFile: isFile
+
+folder_edit:
+    Modules\ObjectBundle\Entity\Objects:
+        type: only
+        fields: [id, title, key, created, size]
+        virtual:
+            isFile: isFile
+
+folder_delete:
+    Modules\ObjectBundle\Entity\Objects:
+        type: only
+        fields: [id, title, key, created, size]
+        virtual:
+            isFile: isFile
+
+bucket_list:
+    Modules\ObjectBundle\Entity\Objects:
+        type: only
+        fields: [id, title, key, created, size]
+        virtual:
+            isFile: isFile
+
+bucket_list_folder:
+    Modules\ObjectBundle\Entity\Objects:
+        type: only
+        fields: [id, title, key, created, size]
+        virtual:
+            isFile: isFile

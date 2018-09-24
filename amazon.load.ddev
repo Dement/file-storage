@@ -1,0 +1,25 @@
+server {
+    listen 80;
+    server_name amazons3.ddev;
+    root        /var/www/amazon.load.ddev/;
+    index index.php
+
+    charset utf-8;
+
+    location / {
+	try_files $uri $uri/ /index.php?$args;
+    }
+
+    location ~ \.php$ {
+        include        fastcgi_params;
+        fastcgi_param  SCRIPT_FILENAME $document_root$fastcgi_script_name;
+	    fastcgi_pass unix:/var/run/php/php7.2-fpm.sock;
+    }
+
+    access_log  /var/log/nginx/amazon.loder.log;
+    error_log   /var/log/nginx/amazon.loder.log;
+
+    location ~ /\.(ht|svn|git) {
+        deny all;
+    }
+}

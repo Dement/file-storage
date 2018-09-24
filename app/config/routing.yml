@@ -1,0 +1,24 @@
+nelmio_api_doc_index:
+    host:     "docs.%app.domain%"
+    path: /
+    defaults: { _controller: nelmio_api_doc.controller.swagger_ui }
+#    defaults: { _controller: NelmioApiDocBundle:ApiDoc:index, view: 'default' }
+    methods: [GET]
+
+auth:
+    host:     "api.%app.domain%"
+    resource: "@AuthBundle/Resources/config/routing.yml"
+    prefix:   /v1
+    schemes: [%protocol%]
+
+bucket:
+    host:     "api.%app.domain%"
+    resource: "@BucketBundle/Resources/config/routing.yml"
+    prefix:   /v1
+    schemes: [%protocol%]
+
+object:
+    host:     "api.%app.domain%"
+    resource: "@ObjectBundle/Resources/config/routing.yml"
+    prefix:   /v1
+    schemes: [%protocol%]

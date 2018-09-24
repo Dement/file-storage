@@ -1,0 +1,30 @@
+bucket_add:
+    path: /bucket
+    defaults: { _controller: BucketBundle:Bucket:create, _format: json }
+    methods: [POST]
+
+bucket_edit:
+    path: /bucket/{id}
+    defaults: { _controller: BucketBundle:Bucket:update, _format: json }
+    methods: [PUT]
+    requirements:
+        id: "\\d+"
+
+bucket_delete:
+    path:     /bucket/{id}
+    defaults: { _controller: BucketBundle:Bucket:delete, _format: json }
+    methods: [DELETE]
+    requirements:
+        id: "\\d+"
+
+bucket_get:
+    path: /bucket/{id}
+    defaults: { _controller: BucketBundle:Bucket:get, _format: json }
+    methods: [GET]
+    requirements:
+        id: "\\d+"
+
+bucket_list:
+    path: /bucket
+    defaults: { _controller: BucketBundle:Bucket:getList, _format: json }
+    methods: [GET]

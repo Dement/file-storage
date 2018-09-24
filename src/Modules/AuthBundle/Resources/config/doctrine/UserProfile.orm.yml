@@ -1,0 +1,44 @@
+Modules\AuthBundle\Entity\UserProfile:
+    type: entity
+    table: null
+    repositoryClass: Modules\AuthBundle\Repository\UserProfileRepository
+    id:
+        id:
+            type: integer
+            id: true
+            generator:
+                strategy: AUTO
+    fields:
+        lastName:
+            type: string
+            length: 255
+            nullable: true
+        name:
+            type: string
+            length: 255
+            nullable: true
+        created:
+            type: datetime
+            nullable: true
+            gedmo:
+              timestampable:
+                on: create
+        updated:
+            type: datetime
+            nullable: true
+            gedmo:
+              timestampable:
+                on: update
+        deleted:
+            type: datetime
+            nullable: true
+
+    oneToOne:
+        user:
+            targetEntity: User
+            joinColumn:
+                name: user_id
+                referencedColumnName: id
+                onDelete: CASCADE
+
+    lifecycleCallbacks: {  }

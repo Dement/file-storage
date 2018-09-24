@@ -1,0 +1,19 @@
+Modules\AuthBundle\Entity\AppToken:
+    type: entity
+    table: null
+    repositoryClass: Modules\AuthBundle\Repository\AppTokenRepository
+    id:
+        id:
+            type: integer
+            id: true
+            generator:
+                strategy: AUTO
+
+    fields:
+        token:
+            type: text
+            nullable: true
+        expiredTime:
+            type: integer
+
+    lifecycleCallbacks: {  }

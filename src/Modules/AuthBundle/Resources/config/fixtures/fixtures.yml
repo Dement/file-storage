@@ -1,0 +1,196 @@
+Modules\AuthBundle\Entity\User:
+    user1:
+        username: test1
+        email: test1@gmail.com
+        password: 123
+        phone: 9211234567
+        activation: 1
+        profile: '@profile1'
+        locked: false
+
+Modules\AuthBundle\Entity\UserProfile:
+    profile1:
+        lastname: Pypkin
+        name: Vasa
+        user: '@user1'
+
+Modules\AuthBundle\Entity\UserToken:
+    token1:
+        token: fake
+        activation: 1
+        authcode: 123456
+        expiredTime: 1592402045
+        user: '@user1'
+
+Modules\AuthBundle\Entity\AppToken:
+    apptoken1:
+        token: appfake
+        expiredTime: 1502402045
+
+Modules\BucketBundle\Entity\Bucket:
+    bucket1:
+        title: test1
+        profile: '@profile1'
+    bucket2:
+        title: test2
+        profile: '@profile1'
+
+Modules\ObjectBundle\Entity\Objects:
+    objects1:
+        bucket: '@bucket1'
+        title: null
+        key: 'qqqqq'
+        etag: '437599f1ea3514f8969f161a6606ce18'
+        size: null
+        delete: false
+        created: <(new \DateTime('2018-09-24 01:55:10'))>
+    objects2:
+        bucket: '@bucket1'
+        title: null
+        key: 'qqqqq/wwww'
+        etag: '10fd38ff0a037d94993abbf5abc5534d'
+        size: null
+        delete: false
+        created: <(new \DateTime('2018-09-24 01:55:10'))>
+    objects3:
+        bucket: '@bucket1'
+        title: null
+        key: 'qqqqq/wwww/zzzzz'
+        etag: '83e2bcc077d77425558b746fc1b32558'
+        size: null
+        delete: false
+        created: <(new \DateTime('2018-09-24 01:55:10'))>
+    objects4:
+        bucket: '@bucket1'
+        title: null
+        key: 'qqqqq/wwww/tttttt'
+        etag: '168c3ba1d302ef3ca705a3f6e35b1f5b'
+        size: null
+        delete: false
+        created: <(new \DateTime('2018-09-24 01:55:10'))>
+    objects5:
+        bucket: '@bucket1'
+        title: null
+        key: 'qqqqq/wwww/mmmmmm'
+        etag: '6f6c0e5e59a571301b360f94d65e111e'
+        size: null
+        delete: false
+        created: <(new \DateTime('2018-09-24 01:55:10'))>
+    objects6:
+        bucket: '@bucket1'
+        title: null
+        key: 'qqqqq/eeeeee'
+        etag: '5bb1fa04a5f587b8ca4dd58fd39090af'
+        size: null
+        delete: false
+        created: <(new \DateTime('2018-09-24 01:55:10'))>
+    objects7:
+        bucket: '@bucket1'
+        title: null
+        key: 'qqqqq/eeeeee/mmmmmm'
+        etag: '95647d3ee3dc86f6952b8eab68db79c0'
+        size: null
+        delete: false
+        created: <(new \DateTime('2018-09-24 01:55:10'))>
+    objects8:
+        bucket: '@bucket1'
+        title: null
+        key: 'qqqqq/eeeeee/jjjjjj'
+        etag: '86567465a57fd822715599930a8d1431'
+        size: null
+        delete: false
+        created: <(new \DateTime('2018-09-24 01:55:10'))>
+    objects9:
+        bucket: '@bucket1'
+        title: null
+        key: 'qqqqq/eeeeee/ppppp'
+        etag: '6a5cd49a22464ab4e67259c632973d2c'
+        size: null
+        delete: false
+        created: <(new \DateTime('2018-09-24 01:55:10'))>
+    objects10:
+        bucket: '@bucket1'
+        title: null
+        key: 'qqqqq/eeeeee/ppppp/jjjjjj'
+        etag: 'efbacedeb3aff77a34c325806616da7e'
+        size: null
+        delete: false
+        created: <(new \DateTime('2018-09-24 01:55:10'))>
+    objects11:
+        bucket: '@bucket1'
+        file: '@file1'
+        title: 'test1.txt'
+        key: 'qqqqq/eeeeee/'
+        etag: 'a5e51cb96bafc04dd80689a9600f063a'
+        size: '1024'
+        delete: false
+        created: <(new \DateTime('2018-09-24 01:55:10'))>
+    objects12:
+        bucket: '@bucket1'
+        file: '@file2'
+        title: 'test2.txt'
+        key: 'qqqqq/eeeeee/ppppp/'
+        etag: '8f60c18c8f4f0efb21585ad861c4eb1d'
+        size: '512'
+        delete: false
+        created: <(new \DateTime('2018-09-24 01:55:10'))>
+    objects13:
+        bucket: '@bucket1'
+        file: '@file3'
+        title: 'test3.csv'
+        key: 'qqqqq/eeeeee/ppppp/'
+        etag: '4c49140d3bfb319738444e5733ab3523'
+        size: '1024'
+        delete: false
+        created: <(new \DateTime('2018-09-24 01:55:10'))>
+    objects14:
+        bucket: '@bucket1'
+        file: '@file4'
+        title: 'test4.txt'
+        key: 'qqqqq/eeeeee/ppppp/'
+        etag: '0f95035f1de1add18c6f82a0e9562604'
+        size: '1024'
+        delete: false
+        created: <(new \DateTime('2018-09-24 01:55:10'))>
+    objects15:
+        bucket: '@bucket1'
+        file: '@file5'
+        title: 'test5.txt'
+        key: 'qqqqq/eeeeee/jjjjjj/'
+        etag: '21b503975950615d0a1c4b47f0024a07'
+        size: '1024'
+        delete: false
+        created: <(new \DateTime('2018-09-24 01:55:10'))>
+
+
+Modules\ObjectBundle\Entity\File:
+    file1:
+        objects: '@objects11'
+        path: '/rqwrewqr/rewrwqer/'
+        fileName: 'test1'
+        ext: 'txt'
+        size: '1024'
+    file2:
+        objects: '@objects12'
+        path: '/rqwrewqr/rewrwqer/'
+        fileName: 'test2'
+        ext: 'txt'
+        size: '512'
+    file3:
+        objects: '@objects13'
+        path: '/ghjhjgh/uytutyu/'
+        fileName: 'test3'
+        ext: 'csv'
+        size: '1024'
+    file4:
+        objects: '@objects14'
+        path: '/nmbn/uytutyuty/'
+        fileName: 'test4'
+        ext: 'txt'
+        size: '1024'
+    file5:
+        objects: '@objects15'
+        path: '/rqwrewqr/rewrwqer/'
+        fileName: 'test5'
+        ext: 'txt'
+        size: '1024'

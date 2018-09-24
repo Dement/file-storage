@@ -1,0 +1,25 @@
+server {
+    listen 80;
+    server_name docs.amazonS3.ddev api.amazonS3.ddev;
+    root        /var/www/amazonS3.dev/web/;
+    index app.php
+
+    charset utf-8;
+
+    location / {
+	try_files $uri $uri/ /app_dev.php?$args;
+    }
+
+    location ~ \.php$ {
+        include        fastcgi_params;
+        fastcgi_param  SCRIPT_FILENAME $document_root$fastcgi_script_name;
+	    fastcgi_pass unix:/var/run/php/php7.2-fpm.sock;
+    }
+
+    access_log  /var/log/nginx/api.amazonS3-access.log;
+    error_log   /var/log/nginx/api.amazonS3-error.log;
+
+    location ~ /\.(ht|svn|git) {
+        deny all;
+    }
+}

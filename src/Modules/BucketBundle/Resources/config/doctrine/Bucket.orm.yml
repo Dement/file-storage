@@ -1,0 +1,23 @@
+Modules\BucketBundle\Entity\Bucket:
+    type: entity
+    table: null
+    repositoryClass: Modules\BucketBundle\Repository\BucketRepository
+    id:
+        id:
+            type: integer
+            id: true
+            generator:
+                strategy: AUTO
+
+    fields:
+        title:
+            type: text
+            length: 256
+
+    manyToOne:
+        profile:
+            targetEntity: Modules\AuthBundle\Entity\UserProfile
+            mappedBy: id
+            nullable: false
+
+    lifecycleCallbacks: {  }

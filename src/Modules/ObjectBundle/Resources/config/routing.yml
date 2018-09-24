@@ -1,0 +1,48 @@
+folder_add:
+    path: /bucket/{id}/folder/
+    defaults: { _controller: ObjectBundle:Objects:create, _format: json }
+    methods: [POST]
+
+folder_add_folder:
+    path: /bucket/{id}/folder/{key}
+    defaults: { _controller: ObjectBundle:Objects:create, _format: json }
+    methods: [POST]
+    requirements:
+        id: "\\d+"
+        key: .+
+
+folder_edit:
+    path: /bucket/{id}/folder/{key}
+    defaults: { _controller: ObjectBundle:Objects:update, _format: json }
+    methods: [PUT]
+    requirements:
+        id: "\\d+"
+        key: .+
+
+folder_delete:
+    path:     /bucket/{id}/folder/{key}
+    defaults: { _controller: ObjectBundle:Objects:delete, _format: json }
+    methods: [DELETE]
+    requirements:
+        id: "\\d+"
+        key: .+
+
+bucket_list:
+    path: /bucket/{id}/folder/
+    defaults: { _controller: ObjectBundle:Objects:getList, _format: json }
+    methods: [GET]
+    requirements:
+        id: "\\d+"
+
+bucket_list_folder:
+    path: /bucket/{id}/folder/{key}
+    defaults: { _controller: ObjectBundle:Objects:getList, _format: json }
+    methods: [GET]
+    requirements:
+        id: "\\d+"
+        key: .+
+
+file_add:
+    path: /file
+    defaults: { _controller: ObjectBundle:Upload:add, _format: json }
+    methods: [POST]

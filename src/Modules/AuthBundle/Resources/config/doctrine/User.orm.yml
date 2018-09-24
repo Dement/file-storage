@@ -1,0 +1,35 @@
+Modules\AuthBundle\Entity\User:
+    type: entity
+    table: fos_user
+    repositoryClass: Modules\AuthBundle\Repository\UserRepository
+    id:
+        id:
+            type: integer
+            id: true
+            generator:
+                strategy: AUTO
+    fields:
+        phone:
+            type: text
+            length: 10
+        activation:
+            type: boolean
+            default: 0
+            nullable: false
+        locked:
+            type: boolean
+            default: false
+            nullable: false
+
+    oneToOne:
+        profile:
+            targetEntity: UserProfile
+            cascade: ["persist", "remove"]
+            orphanRemoval: true
+            fetch: EAGER
+            joinColumn:
+                name: profile_id
+                referencedColumnName: id
+                onDelete: CASCADE
+
+    lifecycleCallbacks: {  }

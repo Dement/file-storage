@@ -1,0 +1,30 @@
+Modules\AuthBundle\Entity\UserToken:
+    type: entity
+    table: null
+    repositoryClass: Modules\AuthBundle\Repository\UserTokenRepository
+    id:
+        id:
+            type: integer
+            id: true
+            generator:
+                strategy: AUTO
+
+    fields:
+        token:
+            type: text
+            nullable: true
+        activation:
+            type: boolean
+            default: 0
+            nullable: false
+        authCode:
+            type: integer
+            nullable: true
+        expiredTime:
+            type: integer
+    manyToOne:
+        user:
+            targetEntity: User
+            mappedBy: id
+
+    lifecycleCallbacks: {  }

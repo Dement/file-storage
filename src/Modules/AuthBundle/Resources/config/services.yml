@@ -1,0 +1,12 @@
+services:
+    api.user_manager:
+        class: Modules\AuthBundle\Security\ApiUserManager
+        arguments: [ "@security.encoder_factory", "@fos_user.util.username_canonicalizer", "@fos_user.util.email_canonicalizer", "@fos_user.object_manager", "%api_user_class%"]
+
+    api.token_authenticator:
+        class: Modules\AuthBundle\Security\ApiTokenAuthenticator
+        arguments: ['@doctrine.orm.entity_manager']
+
+    api.token_manager:
+        class: Modules\AuthBundle\Security\ApiTokenManager
+        arguments: ['@request_stack', '@service_container']
