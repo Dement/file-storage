@@ -1,5 +1,5 @@
-amazonS3.dev
-============
+prototype amazonS3.dev
+=======================
 
 Тестировалось на php7.2, PostgreSQL 10.5, Redis server 3.0.6
 
