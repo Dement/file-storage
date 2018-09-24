@@ -11,8 +11,8 @@ use BaseExceptions\{
     ApiException,
     ValidException
 };
-use Modules\BucketBundle\{
-    Repository\BucketRepository,
+use Modules\BucketBundle\Repository\BucketRepository;
+use Modules\ObjectBundle\{
     Entity\Objects,
     Forms\ObjectsType,
     Repository\ObjectsRepository
@@ -391,7 +391,7 @@ class ObjectsController extends BaseController
             $substring = $key . '/';
         }
 
-        if (is_null($object = ObjectsRepository::get()->getByEtag($md5)) && !empty($key)) {
+        if (!empty($key) && is_null($object = ObjectsRepository::get()->getByEtag($md5))) {
             throw new ApiException('Folder not found', 404);
         }
 
