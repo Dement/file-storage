@@ -34,7 +34,7 @@ class BucketController extends BaseController
      *     description="Returns bucket",
      *     @SWG\Schema(
      *         type="object",
-     *         @SWG\Property(property="id", type="int"),
+     *         @SWG\Property(property="id", type="integer"),
      *         @SWG\Property(property="title", type="string"),
      *     )
      * )
@@ -78,7 +78,7 @@ class BucketController extends BaseController
      *     description="Returns bucket",
      *     @SWG\Schema(
      *         type="object",
-     *         @SWG\Property(property="id", type="int"),
+     *         @SWG\Property(property="id", type="integer"),
      *         @SWG\Property(property="title", type="string"),
      *     )
      * )
@@ -123,7 +123,7 @@ class BucketController extends BaseController
      *     description="Returns bucket",
      *     @SWG\Schema(
      *         type="object",
-     *         @SWG\Property(property="status", type="bool"),
+     *         @SWG\Property(property="status", type="boolean"),
      *     )
      * )
      * @SWG\Parameter(
@@ -163,7 +163,7 @@ class BucketController extends BaseController
      *     description="Returns bucket",
      *     @SWG\Schema(
      *         type="object",
-     *         @SWG\Property(property="id", type="int"),
+     *         @SWG\Property(property="id", type="integer"),
      *         @SWG\Property(property="title", type="string"),
      *     )
      * )
@@ -201,7 +201,7 @@ class BucketController extends BaseController
      *         type="array",
      *         @SWG\Items(
      *              type="object",
-     *              @SWG\Property(property="id", type="int"),
+     *              @SWG\Property(property="id", type="integer"),
      *              @SWG\Property(property="title", type="string"),
      *         )
      *     )

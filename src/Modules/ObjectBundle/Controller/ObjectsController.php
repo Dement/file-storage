@@ -7,24 +7,65 @@ use BaseClasses\{
     CheckClient
 };
 use BaseClasses\BaseEntityManager;
-use BaseExceptions\ApiException;
-use BaseExceptions\ValidException;
-use Modules\BucketBundle\Entity\Bucket;
-use Modules\BucketBundle\Repository\BucketRepository;
-use Modules\ObjectBundle\Entity\Objects;
-use Modules\ObjectBundle\Forms\ObjectsType;
-use Modules\ObjectBundle\Repository\ObjectsRepository;
+use BaseExceptions\{
+    ApiException,
+    ValidException
+};
+use Modules\BucketBundle\{
+    Repository\BucketRepository,
+    Entity\Objects,
+    Forms\ObjectsType,
+    Repository\ObjectsRepository
+};
 use Symfony\Component\HttpFoundation\{
     Request,
     Response
 };
 use FOS\RestBundle\Controller\Annotations as Rest;
 use Validator\ValidErrors;
+use Swagger\Annotations as SWG;
+use Symfony\Component\Routing\Annotation\Route;
 
 class ObjectsController extends BaseController
 {
     /**
      * Create folder
+     *
+     * @SWG\Tag(name="Object")
+     * @Route("/v1/bucket/{id}/folder/", methods={"POST"})
+     * @SWG\Response(
+     *     response=200,
+     *     description="Returns collection object",
+     *     @SWG\Schema(
+     *         type="array",
+     *         @SWG\Items(
+     *              type="object",
+     *              @SWG\Property(property="id", type="integer"),
+     *              @SWG\Property(property="title", type="string"),
+     *              @SWG\Property(property="key", type="string"),
+     *              @SWG\Property(property="created", type="string", format="date-time"),
+     *              @SWG\Property(property="size", type="integer"),
+     *              @SWG\Property(property="isFile", type="boolean"),
+     *         )
+     *     )
+     * )
+     * @SWG\Parameter(
+     *     name="Authorization",
+     *     in="header",
+     *     required=true,
+     *     type="string",
+     *     default="TOKEN",
+     *     description="Authorization"
+     * )
+     * @SWG\Parameter(
+     *     name="title",
+     *     type="string",
+     *     in="body",
+     *     description="The field used to title",
+     *     minLength="4",
+     *     maxLength="51",
+     *     required=true
+     * )
      *
      * @Rest\View
      *
@@ -110,6 +151,42 @@ class ObjectsController extends BaseController
     /**
      * Update folder
      *
+     * @SWG\Tag(name="Object")
+     * @Route("/v1/bucket/{id}/folder/{key}", methods={"PUT"})
+     * @SWG\Response(
+     *     response=200,
+     *     description="Returns collection object",
+     *     @SWG\Schema(
+     *         type="array",
+     *         @SWG\Items(
+     *              type="object",
+     *              @SWG\Property(property="id", type="integer"),
+     *              @SWG\Property(property="title", type="string"),
+     *              @SWG\Property(property="key", type="string"),
+     *              @SWG\Property(property="created", type="string", format="date-time"),
+     *              @SWG\Property(property="size", type="integer"),
+     *              @SWG\Property(property="isFile", type="boolean"),
+     *         )
+     *     )
+     * )
+     * @SWG\Parameter(
+     *     name="Authorization",
+     *     in="header",
+     *     required=true,
+     *     type="string",
+     *     default="TOKEN",
+     *     description="Authorization"
+     * )
+     * @SWG\Parameter(
+     *     name="title",
+     *     type="string",
+     *     in="body",
+     *     description="The field used to title",
+     *     minLength="4",
+     *     maxLength="51",
+     *     required=true
+     * )
+     *
      * @Rest\View
      *
      * @param $id
@@ -181,6 +258,33 @@ class ObjectsController extends BaseController
     /**
      * Delete folder
      *
+     * @SWG\Tag(name="Object")
+     * @Route("/v1/bucket/{id}/folder/{key}", methods={"DELETE"})
+     * @SWG\Response(
+     *     response=200,
+     *     description="Returns collection object",
+     *     @SWG\Schema(
+     *         type="array",
+     *         @SWG\Items(
+     *              type="object",
+     *              @SWG\Property(property="id", type="integer"),
+     *              @SWG\Property(property="title", type="string"),
+     *              @SWG\Property(property="key", type="string"),
+     *              @SWG\Property(property="created", type="string", format="date-time"),
+     *              @SWG\Property(property="size", type="integer"),
+     *              @SWG\Property(property="isFile", type="boolean"),
+     *         )
+     *     )
+     * )
+     * @SWG\Parameter(
+     *     name="Authorization",
+     *     in="header",
+     *     required=true,
+     *     type="string",
+     *     default="TOKEN",
+     *     description="Authorization"
+     * )
+     *
      * @Rest\View
      *
      * @param $id
@@ -234,6 +338,33 @@ class ObjectsController extends BaseController
 
     /**
      * Get list of objects in the folder
+     *
+     * @SWG\Tag(name="Object")
+     * @Route("/v1/bucket/{id}/folder/{key}", methods={"GET"})
+     * @SWG\Response(
+     *     response=200,
+     *     description="Returns collection object",
+     *     @SWG\Schema(
+     *         type="array",
+     *         @SWG\Items(
+     *              type="object",
+     *              @SWG\Property(property="id", type="integer"),
+     *              @SWG\Property(property="title", type="string"),
+     *              @SWG\Property(property="key", type="string"),
+     *              @SWG\Property(property="created", type="string", format="date-time"),
+     *              @SWG\Property(property="size", type="integer"),
+     *              @SWG\Property(property="isFile", type="boolean"),
+     *         )
+     *     )
+     * )
+     * @SWG\Parameter(
+     *     name="Authorization",
+     *     in="header",
+     *     required=true,
+     *     type="string",
+     *     default="TOKEN",
+     *     description="Authorization"
+     * )
      *
      * @Rest\View
      *

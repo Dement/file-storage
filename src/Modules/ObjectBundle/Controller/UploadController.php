@@ -28,6 +28,50 @@ class UploadController extends BaseController
     /**
      * Add file.
      *
+     * @SWG\Tag(name="Object")
+     * @Route("/v1/file", methods={"POST"})
+     * @SWG\Response(
+     *     response=200,
+     *     description="Returns status",
+     *     @SWG\Schema(
+     *         type="object",
+     *         @SWG\Property(property="status", type="boolean"),
+     *     )
+     * )
+     * @SWG\Parameter(
+     *     name="Authorization",
+     *     in="header",
+     *     required=true,
+     *     type="string",
+     *     default="TOKEN",
+     *     description="Authorization"
+     * )
+     * @SWG\Parameter(
+     *     name="upload-id",
+     *     in="header",
+     *     required=true,
+     *     type="string",
+     *     default="string",
+     *     description="The unique identifier for the file"
+     * )
+     * @SWG\Parameter(
+     *     name="Portion-From",
+     *     in="header",
+     *     required=true,
+     *     type="integer",
+     *     default="integer",
+     *     description="The position of the sent block"
+     * )
+     * @SWG\Parameter(
+     *     name="title",
+     *     type="string",
+     *     in="body",
+     *     description="The field used to title",
+     *     minLength="4",
+     *     maxLength="51",
+     *     required=true
+     * )
+     *
      * @Rest\View
      *
      * @param Request $request
