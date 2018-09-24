@@ -54,7 +54,6 @@ class Serializer
 
             $array = [];
             foreach ($data as $k => $v) {
-                //TODO посмотреть не сломает ли это что нить другое и везде ли прчинилась колекция.
                 if(preg_match('/^\+?\d+$/', $k)) {
                     $array[] = $this->visit($v);
                 } else {
@@ -153,7 +152,6 @@ class Serializer
                             if (isset($jmsConfig['virtual'])) {
                                 foreach ($jmsConfig['virtual'] as $name => $method) {
                                     if (!in_array($name, $classConfig['fields'])) {
-                                        //TODO дописать код см 133 строчку. is_string OR is_array
                                         $array[$name] = $data->$method();
                                     }
                                 }

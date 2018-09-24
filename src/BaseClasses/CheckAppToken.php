@@ -34,8 +34,6 @@ class CheckAppToken {
         if(is_null($token)) {
             throw new ApiException('app_token', 401);
         }
-
-        //TODO вбудущем можно поставить проверку на время жизни token
     }
 
     /**

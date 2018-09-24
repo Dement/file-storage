@@ -29,8 +29,6 @@ class BaseKernel
     public static function get() : Kernel
     {
         if (null === self::$classKernel) {
-            //TODO грязный хак что бы работала консоль, тут должно быть Exception
-//            throw new \Exception('The AppKernel Class is not installed', 500);
             global $kernel;
 
             if ('AppKernel' == get_class($kernel)) {

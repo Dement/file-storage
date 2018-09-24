@@ -75,7 +75,6 @@ class BaseRepository extends EntityRepository
      *
      * @return BaseQueryBuilder
      */
-    //TODO разобраться с кешем
     public function createQueryBuilder($alias, $indexBy = null) : BaseQueryBuilder
     {
         $query = parent::createQueryBuilder($alias, $indexBy);

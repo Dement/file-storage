@@ -60,27 +60,9 @@ class BaseQueryBuilder extends QueryBuilder {
      *
      * @return Query
      */
-    //TODO пошаманить с окружением
-    //TODO разобраться с кешем
     public function getQuery()
     {
         $query = parent::getQuery();
-
-//        if($this->customQuery) {
-//            //TODO needed fix for Sonata AdminBundle
-//            //TODO other requests, who use QueryBuilder can be crashed
-//            if (!is_null($this->getCacheKey()) && $this->getContainer()->get('kernel')->getEnvironment() != 'test' && strpos(Request::createFromGlobals()->getPathInfo(), '/admin/') === false) {
-//                $params = [];
-//
-//                $el = $query->getParameters()->first();
-//                while ($el) {
-//                    $params[] = $el->getName() . ":" . $el->getValue();
-//                    $el = $query->getParameters()->next();
-//                }
-//
-//                $query->useResultCache(true, 3600, $this->getCacheKey() . ":" . implode(":", $params));
-//            }
-//        }
 
         return $query;
     }
